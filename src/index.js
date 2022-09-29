@@ -1,10 +1,6 @@
 import React from 'react';
 import { render } from "react-dom";
-import { App } from "./components/App.js";
-import "./styles/index.css";
-import { showAlert } from "./components/AutoHideAlert.js";
-import { showMintModal } from "./components/MintModal.js";
-import { init } from "./mint";
+import { App } from "./components/App.js";   
 
 const createDOMElement = () => {
     const body = document.getElementsByTagName('body')[0];
@@ -20,9 +16,7 @@ const renderAppContainer = () => {
 }
 
 renderAppContainer();
-init();
-
-export { showAlert, showMintModal, renderAppContainer };
+export {renderAppContainer };
 
 
 
