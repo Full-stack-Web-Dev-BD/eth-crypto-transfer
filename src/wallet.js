@@ -4,7 +4,6 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 
 import { NETWORKS } from "./constants.js";
 import {isMobile, objectMap} from "./utils.js";
-import {setContracts} from "./contract.js";
 
 
 export let [web3, provider] = [];
@@ -89,10 +88,7 @@ export const getWalletAddressOrConnect = async (shouldSwitchNetwork, refresh) =>
             window.location.reload();
         }
     }
-    // For multi-chain dapps (multi-chain contracts on the same page)
-    if (shouldSwitchNetwork ?? true) {
-        await setContracts(shouldSwitchNetwork ?? true);
-    }
+
     return await currentAddress();
 }
 

